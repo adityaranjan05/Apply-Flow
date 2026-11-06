@@ -1,4 +1,4 @@
-# ApplyFlow 🚀
+# ApplyFlow
 
 **A smarter way to track and manage your job applications.**
 
@@ -6,17 +6,17 @@ ApplyFlow is a modern, responsive job application tracking dashboard designed to
 
 Instead of maintaining scattered spreadsheets or manually remembering application statuses, ApplyFlow provides a centralized workspace to manage the entire job application process.
 
-> **Project Status:** 🚧 In Development
+> **Project Status:** In Development
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 
 During a job search, candidates often apply to multiple companies simultaneously. Keeping track of application dates, job roles, interview schedules, and application statuses can become difficult.
 
 ApplyFlow aims to solve this problem by providing a centralized platform where users can organize applications, track progress, and gain insights into their job search.
 
-## ✨ Planned Features
+## Planned Features
 
 ### 1. Dashboard
 - Overview of total job applications.
@@ -67,7 +67,7 @@ Applications will be organized into columns based on their current status.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |---|---|
@@ -85,7 +85,7 @@ Applications will be organized into columns based on their current status.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 applyflow/
@@ -134,7 +134,7 @@ applyflow/
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -172,7 +172,7 @@ Open the local URL displayed in your terminal to view the application.
 
 ---
 
-## 🗺️ Application Routes
+## Application Routes
 
 | Route | Page | Purpose |
 |---|---|---|
@@ -185,7 +185,7 @@ Open the local URL displayed in your terminal to view the application.
 
 ---
 
-## 🧠 Key Concepts Explored
+## Key Concepts Explored
 
 This project is also an opportunity to strengthen practical React development skills.
 
@@ -206,7 +206,7 @@ The development process will involve:
 
 ---
 
-## 📌 Development Roadmap
+## Development Roadmap
 
 - [ ] Project setup and dependency configuration
 - [ ] Tailwind CSS and design system
@@ -226,7 +226,7 @@ The development process will involve:
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 Potential improvements beyond the initial scope:
 
@@ -241,7 +241,7 @@ Potential improvements beyond the initial scope:
 
 ---
 
-## 👨‍💻 Development Philosophy
+## Development Philosophy
 
 ApplyFlow is being developed with an emphasis on:
 
@@ -254,7 +254,7 @@ ApplyFlow is being developed with an emphasis on:
 
 ---
 
-## 📄 License
+## License
 
 This project is currently developed as a personal portfolio project.
 
