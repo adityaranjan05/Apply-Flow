@@ -256,9 +256,11 @@ ApplyFlow is being developed with an emphasis on:
 
 ## License
 
-This project is currently developed as a personal portfolio project.
+This project is licensed under the MIT License.
 
-A suitable open-source license can be added before public distribution.
+You are free to use, copy, modify, merge, publish, distribute, sublicense, and sell copies of this software, subject to the conditions of the MIT License.
+
+See the LICENSE file for the complete license terms.
 
 ---
 
