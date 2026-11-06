@@ -1,0 +1,22 @@
+import { RouterProvider, createBrowserRouter } from 'react-router';
+import './index.css'
+import Dashboard from './Pages/Dashboard';
+import Layout from './Components/Layout/Layout'
+
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+    ],
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
+
+export default App
