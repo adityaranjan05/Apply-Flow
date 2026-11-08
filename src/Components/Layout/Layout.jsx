@@ -9,7 +9,7 @@ function Layout() {
       <div className="flex-1 min-w-0 flex flex-col">
         <Topbar />
         <main
-          className="flex-1 min-h-0 overflow-y-auto p-8"
+          className="flex-1 min-h-0 overflow-y-auto px-3 pb-4"
         >
           <Outlet />
         </main>
