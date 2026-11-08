@@ -4,11 +4,13 @@ import Topbar from "./Topbar";
 
 function Layout() {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden bg-[#0B1020]">
       <Sidebar />
-      <div className="flex-1">
+      <div className="flex-1 min-w-0 flex flex-col">
         <Topbar />
-        <main>
+        <main
+          className="flex-1 min-h-0 overflow-y-auto p-8"
+        >
           <Outlet />
         </main>
       </div>
