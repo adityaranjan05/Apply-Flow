@@ -1,7 +1,13 @@
 import { NavLink } from "react-router";
 
-function Sidebar() {
+const pages = {
+    "/" : "Dashboard",
+    "/applications" : "Applications",
+    "/kanban" : "Kanban Board",
+    "/analytics" : "Analytics",
+}
 
+function Sidebar() {
     return (
         <aside
             className="px-3 py-4 shrink-0 h-screen"
@@ -32,7 +38,27 @@ function Sidebar() {
                 <div
                     className="flex flex-col gap-2 mt-10 w-full"
                 >
-                    <NavLink
+                    {
+                        Object.entries(pages).map(([path, title]) => {
+                            return (
+                                <NavLink
+                                    to={path}
+                                    key={path}
+                                    end={path === "/"}
+                                    className={({ isActive }) => 
+                                        `flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-colors duration-200 ${
+                                            isActive 
+                                                ? "bg-gradient-to-r from-[#252653] to-[#312E81] text-white  hover:from-[#312E81] hover:to-[#4338CA]" 
+                                                : "text-[#94A3B8] hover:bg-[#1E293B] hover:text-[#F8FAFC]"
+                                        }`
+                                    }
+                                >
+                                    {title}
+                                </NavLink>
+                            )
+                        })
+                    }
+                    {/* <NavLink
                         to="/"
                         end
                         className={({ isActive }) => 
@@ -81,7 +107,7 @@ function Sidebar() {
                         }
                     >
                         Analytics
-                    </NavLink>
+                    </NavLink> */}
                 </div>
             </nav>
         </aside>
