@@ -21,12 +21,12 @@ function Topbar () {
             >
                 <div>
                     <h1
-                        className="text-sm text-[#F8FAFC]"
+                        className="text-sm text-[#F8FAFC] selection:bg-[#6366F1]/50"
                     >
                         {title}
                     </h1>
                     <p
-                        className="text-sm text-[#94A3B8]"
+                        className="text-sm text-[#94A3B8] selection:bg-[#6366F1]/50 selection:text-white/80"
                     >
                         Welcome back! Here's your application overview.
                     </p>
@@ -41,7 +41,7 @@ function Topbar () {
                         <Bell  size={20}/>
                     </button>
                     <button 
-                        className="h-9 w-9 rounded-full bg-[#312E81] hover:bg-[#3d3aa1] text-[#C7D2FE] hover:text-white flex items-center justify-center font-semibold transition-colors cursor-pointer"
+                        className="h-9 w-9 rounded-full bg-[#312E81] hover:bg-[#3d3aa1] text-[#C7D2FE] hover:text-white flex items-center justify-center font-semibold transition-colors cursor-pointer selection:bg-[#6366F1]/50"
                     >
                         A
                     </button>

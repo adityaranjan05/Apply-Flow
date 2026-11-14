@@ -1,6 +1,6 @@
 import { BriefcaseBusiness, Plus } from "lucide-react";
 
-function WelcomeSection () {
+function WelcomeSection ({ onAddClick }) {
     return (
         <div
             className="flex justify-between bg-[#151D32]/70 backdrop-blur-2xl border border-[#818CF8]/15 rounded-2xl px-5 py-7"
@@ -17,12 +17,12 @@ function WelcomeSection () {
                     className="flex flex-col justify-center"
                 >
                     <p
-                        className="text-[#F8FAFC] text-3xl font-semibold"
+                        className="text-[#F8FAFC] text-3xl font-semibold selection:bg-[#6366F1]/50"
                     >
                         Good morning, Aditya!
                     </p>
                     <p
-                        className="text-[#E2E8F0] text-sm leading-loose"
+                        className="text-[#E2E8F0] text-sm leading-loose selection:bg-[#6366F1]/50"
                     >
                         Let's keep up the momentum. You've got this!
                     </p>
@@ -32,7 +32,8 @@ function WelcomeSection () {
                 className="flex items-center"
             >
                 <button
-                    className="flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] hover:from-[#4338CA] hover:to-[#6D28D9] text-white font-medium shadow-lg shadow-indigo-500/20 cursor-pointer"
+                    className="flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] hover:from-[#4338CA] hover:to-[#6D28D9] text-white font-medium shadow-lg shadow-indigo-500/20 cursor-pointer selection:bg-[#6366F1]/50"
+                    onClick={onAddClick}
                 >
                     <Plus size={20} />
                     <span>

@@ -28,10 +28,10 @@ function Sidebar() {
             />
           </div>
 
-          <h1 className="text-[#F8FAFC] text-2xl font-semibold">ApplyFlow</h1>
+          <h1 className="text-[#F8FAFC] text-2xl font-semibold selection:bg-[#6366F1]/50">ApplyFlow</h1>
         </div>
 
-        <div className="flex flex-col gap-2 mt-10 w-full">
+        <div className="flex flex-col gap-2 mt-10 w-full selection:bg-[#6366F1]/50 selection:text-white/90">
           {Object.entries(pages).map(([path, title]) => {
             return (
               <NavLink
@@ -39,7 +39,7 @@ function Sidebar() {
                 key={path}
                 end={path === "/"}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-colors duration-200 ${
+                  `flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-colors duration-200  ${
                     isActive
                       ? "bg-gradient-to-r from-[#252653] to-[#312E81] text-white  hover:from-[#312E81] hover:to-[#4338CA]"
                       : "text-[#94A3B8] hover:bg-[#1E293B] hover:text-[#F8FAFC]"

@@ -1,12 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import StatCard from '../Components/Dashboard/StatCard';
 import WelcomeSection from "../Components/Dashboard/WelcomeSection";
 import ApplicationContext from "../context/ApplicationContext";
 import { BriefcaseBusiness, CalendarDays, Trophy, X } from "lucide-react";
 
 function Dashboard() {
+  const [isModalOpen, setModalOpen] = useState(false);
   const { applications } = useContext(ApplicationContext);
   const totalApplications = applications.length;
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  }
 
   const interviews = applications.filter(
     (app) => app.status === "Interview"
@@ -24,7 +29,7 @@ function Dashboard() {
     <div
       className="h-full space-y-8"
     >
-      <WelcomeSection />
+      <WelcomeSection onAddClick={handleOpenModal} />
       <div
         className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5"
       >
