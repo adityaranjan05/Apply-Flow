@@ -3,6 +3,7 @@ import StatCard from '../Components/Dashboard/StatCard';
 import WelcomeSection from "../Components/Dashboard/WelcomeSection";
 import ApplicationContext from "../context/ApplicationContext";
 import { BriefcaseBusiness, CalendarDays, Trophy, X } from "lucide-react";
+import AddApplicationModal from "../Components/Applications/AddApplicationModal";
 
 function Dashboard() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -11,6 +12,10 @@ function Dashboard() {
 
   const handleOpenModal = () => {
     setModalOpen(true);
+  }
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   }
 
   const interviews = applications.filter(
@@ -38,6 +43,7 @@ function Dashboard() {
         <StatCard title="Offers" value={offers} icon={<Trophy />} />
         <StatCard title="Rejections" value={rejections} icon={<X />} />
       </div>
+      {isModalOpen && <AddApplicationModal onClose={handleCloseModal} />}
     </div>
   );
 }
