@@ -1,6 +1,29 @@
 import { BriefcaseBusiness, Plus, X } from "lucide-react"
+import { useState, useContext } from "react"
+import ApplicationContext from "../../context/ApplicationContext";
 
 const AddApplicationModal = ( {onClose} ) => {
+    const [company, setCompany] = useState("");
+    const [role, setRole] = useState("");
+    const [appliedStatus, setAppliedStatus] = useState("");
+    const [appliedDate, setAppliedDate] = useState("");
+    const [notes, setNotes] = useState("");
+
+    const { addApplication } = useContext(ApplicationContext);
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const application = {
+            company: company,
+            role: role,
+            status: appliedStatus,
+            appliedDate: appliedDate,
+            notes: notes,
+        }
+        addApplication(application);
+        onClose();
+    }
+
     return (
         <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-300"
@@ -35,6 +58,7 @@ const AddApplicationModal = ( {onClose} ) => {
                         </div>
                     </div>
                     <button
+                        type="button"
                         className="cursor-pointer p-1 rounded-lg border border-[#334155] text-white/70 hover:border-[#818CF8] hover:text-white hover:bg-[#1E293B] transition-colors"
                         onClick={onClose}
                     >
@@ -42,7 +66,7 @@ const AddApplicationModal = ( {onClose} ) => {
                     </button>
                 </div>
                 <div className="border-t border-[#27324A] mt-4 -mx-6"></div>
-                <form className="mt-4">
+                <form className="mt-4" onSubmit={handleSubmit}>
                     <div
                         className="grid grid-cols-2 gap-5"
                     >
@@ -53,7 +77,10 @@ const AddApplicationModal = ( {onClose} ) => {
                             <input 
                                 type="text"
                                 id="company"
-                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:border-[#33415e]"
+                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:ring-[#6366F1]/20 focus:border-[#818CF8] hover:border-[#475569]"
+                                onChange={(e) => setCompany(e.target.value)}
+                                value={company}
+                                required
                             >
                             </input>
                         </div>
@@ -64,7 +91,10 @@ const AddApplicationModal = ( {onClose} ) => {
                             <input 
                                 type="text"
                                 id="role"
-                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:border-[#33415e]"
+                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:ring-[#6366F1]/20 focus:border-[#818CF8] hover:border-[#475569]"
+                                onChange={(e) => setRole(e.target.value)}
+                                value={role}
+                                required
                             >
                             </input>
                         </div>
@@ -74,13 +104,42 @@ const AddApplicationModal = ( {onClose} ) => {
                             </label>
                             <select
                                 id="applied-status"
-                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:border-[#33415e]"
+                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:ring-[#6366F1]/20 focus:border-[#818CF8] hover:border-[#475569]"
+                                onChange={(e) => setAppliedStatus(e.target.value)}
+                                value={appliedStatus}
+                                required
                             >
-                                <option className="text-white bg-[#1E293B]">Applied</option>
-                                <option className="text-white bg-[#1E293B]">Assessment</option>
-                                <option className="text-white bg-[#1E293B]">Interview</option>
-                                <option className="text-white bg-[#1E293B]">Offer</option>
-                                <option className="text-white bg-[#1E293B]">Rejected</option>
+                                <option value="" disabled className="bg-[#1E293B] text-[#64748B] scheme-dark">Select application status</option>
+                                <option
+                                    value="Applied"
+                                    className="text-white bg-[#1E293B]"
+                                >
+                                    Applied
+                                </option>
+                                <option 
+                                    value="Assessment"
+                                    className="text-white bg-[#1E293B]"
+                                >
+                                    Assessment
+                                </option>
+                                <option 
+                                    value="Interview"
+                                    className="text-white bg-[#1E293B]"
+                                >
+                                    Interview
+                                </option>
+                                <option 
+                                    value="Offer"
+                                    className="text-white bg-[#1E293B]"
+                                >
+                                    Offer
+                                </option>
+                                <option 
+                                    value="Rejected"
+                                    className="text-white bg-[#1E293B]"
+                                >
+                                    Rejected
+                                </option>
                             </select>
                         </div>
                         <div className="flex flex-col gap-2">
@@ -90,7 +149,11 @@ const AddApplicationModal = ( {onClose} ) => {
                             <input 
                                 id="applied-date"
                                 type="date"
-                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:border-[#33415e]"
+                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:border-[#818CF8] hover:border-[#475569] outline-none transition-all duration-200 focus:ring-[#6366F1]/20 scheme-dark"
+                                onClick={(e) => e.target.showPicker()}
+                                onChange={(e) => setAppliedDate(e.target.value)}
+                                value={appliedDate}
+                                required
                             >
                             </input>
                         </div>
@@ -103,12 +166,15 @@ const AddApplicationModal = ( {onClose} ) => {
                             id="notes"
                             placeholder="Add any notes about this application..."
                             rows={3}
-                            className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:border-[#33415e] resize-none overflow-y-auto scrollbar-thin scrollbar-track-[#0F172A] scrollbar-thumb-[#334155]"
+                            className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:ring-[#6366F1]/20 focus:border-[#818CF8] resize-none overflow-y-auto scrollbar-thin scrollbar-track-[#0F172A] scrollbar-thumb-[#334155] hover:border-[#475569]"
+                            onChange={(e) => setNotes(e.target.value)}
+                            value={notes}
                         />
                     </div>
                     <div className="border-t border-[#27324A] mt-4 -mx-6"></div>
                     <div className="flex gap-5 items-center justify-end mt-4">
                         <button
+                            type="button"
                             className="border border-[#354058] text-white px-4 py-2 rounded-lg"
                             onClick={onClose}
                         >
