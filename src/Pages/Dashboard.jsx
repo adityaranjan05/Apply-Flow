@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import StatCard from '../Components/Dashboard/StatCard';
 import WelcomeSection from "../Components/Dashboard/WelcomeSection";
 import ApplicationContext from "../context/ApplicationContext";
-import { BriefcaseBusiness, CalendarDays, Trophy, X } from "lucide-react";
+import { BriefcaseBusiness, CalendarDays, Trophy, X, ClipboardCheck } from "lucide-react";
 import AddApplicationModal from "../Components/Applications/AddApplicationModal";
+import MonthlyApplicationsChart from "../Components/Dashboard/MonthlyApplicationsChart";
 
 function Dashboard() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -21,6 +22,10 @@ function Dashboard() {
   const interviews = applications.filter(
     (app) => app.status === "Interview"
   ).length;
+  
+  const assessments = applications.filter(
+    (app) => app.status === "Assessment"
+  ).length;
 
   const offers = applications.filter(
     (app) => app.status === "Offer"
@@ -36,13 +41,15 @@ function Dashboard() {
     >
       <WelcomeSection onAddClick={handleOpenModal} />
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"
       >
         <StatCard title="Total Applications" value={totalApplications} icon={<BriefcaseBusiness />} />
         <StatCard title="Interviews" value={interviews} icon={<CalendarDays />} />
+        <StatCard title="Assessments" value={assessments} icon={<ClipboardCheck />} />
         <StatCard title="Offers" value={offers} icon={<Trophy />} />
         <StatCard title="Rejections" value={rejections} icon={<X />} />
       </div>
+      <MonthlyApplicationsChart />
       {isModalOpen && <AddApplicationModal onClose={handleCloseModal} />}
     </div>
   );

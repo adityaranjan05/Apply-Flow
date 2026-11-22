@@ -32,7 +32,7 @@ function WelcomeSection ({ onAddClick }) {
                 className="flex items-center"
             >
                 <button
-                    className="flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] hover:from-[#4338CA] hover:to-[#6D28D9] text-white font-medium shadow-lg shadow-indigo-500/20 cursor-pointer selection:bg-[#6366F1]/50"
+                    className="flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 bg-linear-to-r from-[#4F46E5] to-[#7C3AED] hover:from-[#4338CA] hover:to-[#6D28D9] text-white font-medium shadow-lg shadow-indigo-500/20 cursor-pointer selection:bg-[#6366F1]/50"
                     onClick={onAddClick}
                 >
                     <Plus size={20} />
