@@ -1,5 +1,15 @@
 import { useContext } from "react";
 import ApplicationContext from "../../context/ApplicationContext";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer
+} from "recharts";
+import { ChartNoAxesCombined } from "lucide-react";
 
 const months = {
     0 : "January",
@@ -64,7 +74,40 @@ const MonthlyApplicationsChart = () => {
     
     return (
         <>
-            
+            <div className="bg-[#151D32] border border-[#27324A] rounded-2xl p-5 hover:border-[#4c628d] transition-all duration-200">
+                <div className="mb-6 flex gap-3 items-center">
+                    <ChartNoAxesCombined size={40} className="text-[#818CF8]" />
+                    <div>
+                        <h2 className="text-[#F8FAFC] text-lg font-semibold">
+                            Applications Overview
+                        </h2>
+                        <p className="text-[#94A3B8] text-sm mt-1">
+                            Your application activity over the last six months
+                        </p>
+                    </div>
+                </div>
+                <ResponsiveContainer width="100%" height={300}>
+                    <LineChart data={monthlyApplicationData}>
+                        <CartesianGrid />
+                        <XAxis dataKey="month" />
+                        <YAxis />
+                        <Tooltip 
+                            contentStyle={{
+                                backgroundColor: "#0F172A",
+                                border: "1px solid #27324A",
+                                borderRadius: "0.7rem",
+                                color: "#F8FAFC",
+                                padding: "10px 14px"
+                            }}
+                        />
+                        <Line
+                            type="monotone"
+                            dataKey="applications"
+                            stroke="#818CF8"
+                        />
+                    </LineChart>
+                </ResponsiveContainer>
+            </div>
         </>
     )
 }

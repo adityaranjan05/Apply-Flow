@@ -5,6 +5,7 @@ import ApplicationContext from "../context/ApplicationContext";
 import { BriefcaseBusiness, CalendarDays, Trophy, X, ClipboardCheck } from "lucide-react";
 import AddApplicationModal from "../Components/Applications/AddApplicationModal";
 import MonthlyApplicationsChart from "../Components/Dashboard/MonthlyApplicationsChart";
+import ApplicationStatusChart from "../Components/Dashboard/ApplicationStatusChart";
 
 function Dashboard() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -49,7 +50,15 @@ function Dashboard() {
         <StatCard title="Offers" value={offers} icon={<Trophy />} />
         <StatCard title="Rejections" value={rejections} icon={<X />} />
       </div>
-      <MonthlyApplicationsChart />
+      <div className="grid grid-cols-1 xl:grid-cols-5 gap-4 items-stretch">
+        <div className="xl:col-span-3 min-w-0">
+            <MonthlyApplicationsChart />
+        </div>
+
+        <div className="xl:col-span-2 min-w-0">
+            <ApplicationStatusChart />
+        </div>
+      </div>
       {isModalOpen && <AddApplicationModal onClose={handleCloseModal} />}
     </div>
   );
