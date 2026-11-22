@@ -6,6 +6,7 @@ import { BriefcaseBusiness, CalendarDays, Trophy, X, ClipboardCheck } from "luci
 import AddApplicationModal from "../Components/Applications/AddApplicationModal";
 import MonthlyApplicationsChart from "../Components/Dashboard/MonthlyApplicationsChart";
 import ApplicationStatusChart from "../Components/Dashboard/ApplicationStatusChart";
+import RecentApplications from "../Components/Dashboard/RecentApplications";
 
 function Dashboard() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -38,7 +39,7 @@ function Dashboard() {
 
   return (
     <div
-      className="h-full space-y-8"
+      className="h-full space-y-6"
     >
       <WelcomeSection onAddClick={handleOpenModal} />
       <div
@@ -58,6 +59,9 @@ function Dashboard() {
         <div className="xl:col-span-2 min-w-0">
             <ApplicationStatusChart />
         </div>
+      </div>
+      <div>
+        <RecentApplications />
       </div>
       {isModalOpen && <AddApplicationModal onClose={handleCloseModal} />}
     </div>

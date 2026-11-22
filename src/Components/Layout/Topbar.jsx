@@ -14,7 +14,7 @@ function Topbar () {
 
     return (
         <header
-            className="px-3 pt-4 pb-4 shrink-0"
+            className="px-3 pr-4 pt-4 pb-4 shrink-0"
         >
             <div
                 className="bg-[#0F172A] border border-[#27324A] px-5 py-3 rounded-xl flex justify-between"
