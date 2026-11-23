@@ -55,7 +55,7 @@ const ApplicationStatusChart = () => {
                             dataKey="count"
                             nameKey="status"
                             innerRadius={70}
-                            outerRadius={100}
+                            outerRadius={120}
                             paddingAngle={3}
                             cornerRadius={3}
                         >
