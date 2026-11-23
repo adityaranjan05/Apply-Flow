@@ -7,6 +7,7 @@ import AddApplicationModal from "../Components/Applications/AddApplicationModal"
 import MonthlyApplicationsChart from "../Components/Dashboard/MonthlyApplicationsChart";
 import ApplicationStatusChart from "../Components/Dashboard/ApplicationStatusChart";
 import RecentApplications from "../Components/Dashboard/RecentApplications";
+import UpcomingInterviews from "../Components/Dashboard/UpcomingInterviews";
 
 function Dashboard() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -60,8 +61,14 @@ function Dashboard() {
             <ApplicationStatusChart />
         </div>
       </div>
-      <div>
-        <RecentApplications />
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-stretch">
+        <div className="min-w-0">
+            <RecentApplications />
+        </div>
+
+        <div className="min-w-0">
+            <UpcomingInterviews />
+        </div>
       </div>
       {isModalOpen && <AddApplicationModal onClose={handleCloseModal} />}
     </div>

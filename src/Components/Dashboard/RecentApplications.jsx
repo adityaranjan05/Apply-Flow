@@ -14,8 +14,13 @@ const RecentApplications = () => {
     const { applications } = useContext(ApplicationContext);
     const recentApplications = applications.slice(-5).reverse();
 
+    const getLocalDate = (dateString) => {
+        const [year, month, day] = dateString.split("-").map(Number);
+        return new Date(year, month - 1, day);
+    };
+
     return (
-        <div className="bg-[#151D32] border border-[#27324A] rounded-2xl p-5 hover:border-[#4c628d] transition-all duration-200 space-y-4">
+        <div className="bg-[#151D32] border border-[#27324A] rounded-2xl p-5 hover:border-[#4c628d] transition-all duration-200 space-y-4 min-h-87.5 max-h-87.5">
             <div className="flex gap-3 items-center">
                 <History size={40} className="text-[#818CF8]" />
                 <div>
@@ -58,7 +63,7 @@ const RecentApplications = () => {
                                     {application.status}
                                 </span>
                                 <span className="text-white">
-                                    {new Date(application.appliedDate).toLocaleDateString("en-IN", {
+                                    {getLocalDate(application.appliedDate).toLocaleDateString("en-IN", {
                                         day: "2-digit",
                                         month: "short",
                                         year: "numeric"

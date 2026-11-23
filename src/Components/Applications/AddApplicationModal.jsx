@@ -7,6 +7,7 @@ const AddApplicationModal = ( {onClose} ) => {
     const [role, setRole] = useState("");
     const [appliedStatus, setAppliedStatus] = useState("");
     const [appliedDate, setAppliedDate] = useState("");
+    const [interviewDate, setInterviewDate] = useState("");
     const [notes, setNotes] = useState("");
 
     const { addApplication } = useContext(ApplicationContext);
@@ -18,6 +19,7 @@ const AddApplicationModal = ( {onClose} ) => {
             role: role,
             status: appliedStatus,
             appliedDate: appliedDate,
+            interviewDate: appliedStatus === "Interview" ? interviewDate : null,
             notes: notes,
         }
         addApplication(application);
@@ -158,6 +160,23 @@ const AddApplicationModal = ( {onClose} ) => {
                             </input>
                         </div>
                     </div>
+                    {appliedStatus === "Interview" && (
+                        <div className="flex flex-col gap-2 mt-4">
+                            <label className="text-white/90" htmlFor="interview-date">
+                                Interview Date
+                            </label>
+                            <input 
+                                id="interview-date"
+                                type="date"
+                                className="py-2 px-4 text-sm flex-1 border border-[#27324A] rounded-lg text-white/80 focus:outline-none focus:ring-0 focus:border-[#818CF8] hover:border-[#475569] outline-none transition-all duration-200 focus:ring-[#6366F1]/20 scheme-dark"
+                                onClick={(e) => e.target.showPicker()}
+                                onChange={(e) => setInterviewDate(e.target.value)}
+                                value={interviewDate}
+                                required
+                            >
+                            </input>
+                        </div>
+                    )}
                     <div className="flex flex-col gap-2 mt-5">
                         <label htmlFor="notes" className="text-white/90">
                             Notes
